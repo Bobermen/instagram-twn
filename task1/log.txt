@@ -1,0 +1,11 @@
+commit 15d3a58300163362ebcd32c4278d725bd30034ae (HEAD -> master)
+Author: Bobrov Oleg <olegich051@gmail.com>
+Date:   Tue Feb 12 10:17:58 2019 +0300
+
+    changed status
+
+commit d6e7fb4cadcae42d4480909a9e4460bca7cd2ea9
+Author: Bobrov Oleg <olegich051@gmail.com>
+Date:   Tue Feb 12 10:10:24 2019 +0300
+
+    add .gitignore

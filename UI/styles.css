@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    min-width: 350px;
+}
+
+header {
+    position: fixed;
+    flex: 0 0 auto;
+    height: 70px;
+    min-width: 400px;
+    width: 100%;
+    z-index: 1;
+    background-color: #3c3f41;
+    box-shadow: 0 2px 5px;
+}
+h1 {
+    color: snow;
+}
+main {
+    min-width: 400px;
+    width: 60%;
+    margin: 0 auto;
+    padding: 70px 2px 0;
+    background-color: snow;
+}
+
+article img {
+    width: 100%;
+}
+
+.photoPost {
+    border: 10px;
+    background-image: url("photo.jpg");
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.parallax_layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #3c3f41;
+}
+.pl_back {
+    background-image: url(resources/img/stars.png);
+    z-index: -2;
+}
+.pl_fore {
+    background-image: url(resources/img/stars.png);
+    z-index: -1;
+}

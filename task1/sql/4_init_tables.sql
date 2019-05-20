@@ -1,0 +1,38 @@
+USE gram_db;
+
+INSERT INTO USER (NAME)
+VALUES ("Vasja"),
+       ("Vasja"),
+       ("Lasja"),
+       ("Vasja"),
+       ("Vasja"),
+       ("Rasja"),
+       ("Fasja"),
+       ("Gasja"),
+       ("Vasja"),
+       ("Vasja");
+INSERT INTO PHOTO_POST (USER_ID,
+                        DESCRIPTION,
+                        CREATION_DATE,
+                        PHOTO_LINK)
+VALUES (1, "nerlgiuqibiu", "2019-05-01T10:37:10", "photo.jpg"),
+       (1, "qorjgnuq", "2019-05-01T09:24:00", "photo1.jpg"),
+       (9, "qioj;o", "2019-05-09T23:00:00", "photo.jpg"),
+       (10, "qpqiririuiqifuqifi", "2019-02-23T23:00:00", "photo.jpg"),
+       (8, "qfr", "2019-02-23T20:45:10", "photo.jpg"),
+       (5, "niuev", "2019-02-23T23:08:00", "photo.jpg"),
+       (7, "аооко", "2019-02-23T23:00:00", "photo1.jpg"),
+       (1, "hello jifjr", "2018-02-23T16:22:00", "photo.jpg"),
+       (6, "Коeqovrioriujeiurко", NOW(), "photo.jpg"),
+       (1, "oqnernegurqiniо", "2019-05-09T23:00:00", "photo.jpg"),
+       (6, "hello", NOW(), "photo.jpg"),
+       (4, "ergnierugegneirnо", NOW(), "photo.jpg"),
+       (2, "KOKOKO", "2018-04-02T23:00:00", "photo1.jpg"),
+       (1, "erinhellotubi", "2018-05-09T02:12:34", "photo.jpg"),
+       (1, "ernignigeunrineiv", "2018-02-23T03:12:30", "photo.jpg"),
+       (4, "enviuenr", NOW(), "photo1.jpg"),
+       (3, "KEK", "2019-02-23T23:00:00", "photo.jpg"),
+       (6, "hellouhiwefuhwi", NOW(), "vd.jpg"),
+       (6, "sfskefuhwi", NOW(), "vdddd.jpg"),
+       (4, "ddlfuhwi", NOW(), "vddddd.jpg"),
+       (4, "dbkequygbkquygrhwi", NOW(), "vdddgggddd.jpg");

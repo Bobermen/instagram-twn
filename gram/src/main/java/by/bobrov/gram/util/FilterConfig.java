@@ -1,50 +1,45 @@
 package by.bobrov.gram.util;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 public class FilterConfig {
-    private Date fromDate;
-    private Date toDate;
-    private ArrayList<String> authors;
-    private ArrayList<String> hashTags;
+    private Date fromDate, toDate;
+    private List<String> authors;
+    private List<String> hashTags;
 
     public FilterConfig() {
-        this.fromDate = null;
-        this.toDate = null;
-        this.authors = new ArrayList<>();
-        this.hashTags = new ArrayList<>();
+        fromDate = null;
+        toDate = null;
+        this.authors = null;
+        this.hashTags = null;
+    }
+
+    public List<String> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(final List<String> authors) {
+        this.authors = authors;
+    }
+
+    public List<String> getHashTags() {
+        return hashTags;
+    }
+
+    public void setHashTags(final List<String> hashTags) {
+        this.hashTags = hashTags;
     }
 
     public Date getFromDate() {
         return fromDate;
     }
-
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
+    public void setFromDate(Date newFromDate) {
+        this.fromDate = newFromDate;
     }
-
     public Date getToDate() {
         return toDate;
     }
-
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
-    }
-
-    public ArrayList<String> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(ArrayList<String> authors) {
-        this.authors = authors;
-    }
-
-    public ArrayList<String> getHashTags() {
-        return hashTags;
-    }
-
-    public void setHashTags(ArrayList<String> hashTags) {
-        this.hashTags = hashTags;
+    public void setToDate(Date newToDate) {
+        this.toDate = newToDate;
     }
 }

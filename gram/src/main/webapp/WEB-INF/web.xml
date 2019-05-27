@@ -16,10 +16,14 @@
 </servlet>
 <servlet-mapping>
   <servlet-name>PhotoPostServlet</servlet-name>
-  <url-pattern>/status</url-pattern>
-  <url-pattern>/check</url-pattern>
-  <url-pattern>/page</url-pattern>
-  <url-pattern>/test1</url-pattern>
-  <url-pattern>/test2</url-pattern>
+  <url-pattern>/photo-post</url-pattern>
 </servlet-mapping>
+  <servlet>
+    <servlet-name>PhotoPostsServlet</servlet-name>
+    <servlet-class>by.bobrov.gram.servlet.PhotoPostsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoPostsServlet</servlet-name>
+    <url-pattern>/photoposts</url-pattern>
+  </servlet-mapping>
 </web-app>

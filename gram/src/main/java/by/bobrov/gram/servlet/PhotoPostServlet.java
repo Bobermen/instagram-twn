@@ -1,54 +1,87 @@
 package by.bobrov.gram.servlet;
 
-import org.json.JSONObject;
+
+import by.bobrov.gram.entity.PhotoPost;
+import by.bobrov.gram.service.impl.InMemoryPostService;
+import by.bobrov.gram.util.FilterConfig;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class PhotoPostServlet extends HttpServlet {
+    private InMemoryPostService service;
+    private Gson gson;
 
     @Override
-    protected void doPost(
-            final HttpServletRequest request,
-            final HttpServletResponse response
-    ) throws ServletException, IOException {
-        if (request.getServletPath().equals("/check")) {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("success", "true");
-            String string = jsonObject.toString();
-            response.getOutputStream().println(string);
+    public void init() throws ServletException {
+        super.init();
+        service = new InMemoryPostService();
+        gson = new Gson();
+    }
+
+    @Override
+    protected void doGet(final HttpServletRequest request,
+                         final HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        String id = request.getParameter("id");
+        int result;
+        if (id != null) {
+            result = Integer.parseInt(id);
+            response
+                    .getWriter()
+                    .println(gson.toJson(service.getPost(result)));
         }
     }
+
     @Override
-    protected void doGet(
-            final HttpServletRequest request,
-            final HttpServletResponse response
-    ) throws ServletException, IOException {
-        System.out.println(request.getServletPath());
-        switch (request.getServletPath()) {
-            case "/status":
-                response.getOutputStream().println("Application Is Running");
-                break;
-            case "/get":
-                String name = request.getParameter("name");
-                response.getOutputStream().println("Name is " + name);
-                break;
-            case "/page":
-                request.getRequestDispatcher("/page.html")
-                        .forward(request,response);
-                break;
-            case "/test1":
-                request.getRequestDispatcher("/status")
-                        .forward(request, response);
-                break;
-            case "/test2":
-                request.getRequestDispatcher("/page")
-                        .forward(request, response);
-                break;
+    protected void doPost(final HttpServletRequest request,
+                          final HttpServletResponse response)
+            throws IOException {
+        String JSONPost = request.getReader().readLine();
+        service.addPost(gson.fromJson(JSONPost, new TypeToken<PhotoPost>() {
+        }.getType()));
+        response
+                .getWriter()
+                .println(gson.toJson(
+                        service.getPage(0, 10, new FilterConfig())
+                ));
+    }
+
+    @Override
+    protected void doPut(final HttpServletRequest request,
+                         final HttpServletResponse response)
+            throws IOException {
+        String JSONPost = request.getReader().readLine();
+        service.editPost(gson.fromJson(JSONPost, new TypeToken<PhotoPost>() {
+        }.getType()));
+        response
+                .getWriter()
+                .println(gson.toJson(
+                        service.getPage(0, 10, new FilterConfig())
+                ));
+    }
+
+    @Override
+    protected void doDelete(final HttpServletRequest request,
+                            final HttpServletResponse response)
+            throws IOException {
+        String id = request.getParameter("id");
+        int result;
+        if (id != null) {
+            result = Integer.parseInt(id);
+            service.removePost(result);
         }
+        response
+                .getWriter()
+                .println(gson.toJson(service
+                        .getPage(0, 10, new FilterConfig())
+                ));
     }
 }

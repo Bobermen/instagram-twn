@@ -3,13 +3,16 @@ package by.bobrov.gram.service;
 import by.bobrov.gram.entity.PhotoPost;
 import by.bobrov.gram.util.FilterConfig;
 
-import java.util.ArrayList;
-
+import java.util.List;
 
 public interface IPostService {
-    ArrayList<PhotoPost> getPage(int skip, int limit, FilterConfig filterConfig);
-    PhotoPost getPost(int id);
+    List<PhotoPost> getPage(int skip, int top, FilterConfig filterConfig);
+
     boolean addPost(PhotoPost photoPost);
-    boolean removePost(int id);
+
     boolean editPost(PhotoPost newPhotoPost);
+
+    PhotoPost getPost(int id);
+
+    boolean removePost(int id);
 }

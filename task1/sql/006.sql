@@ -1,0 +1,2 @@
+USE gram_db;
+SELECT * FROM USER;

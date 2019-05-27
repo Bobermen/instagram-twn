@@ -41,6 +41,14 @@ public class PhotoPostServlet extends HttpServlet {
                 request.getRequestDispatcher("/page.html")
                         .forward(request,response);
                 break;
+            case "/test1":
+                request.getRequestDispatcher("/status")
+                        .forward(request, response);
+                break;
+            case "/test2":
+                request.getRequestDispatcher("/page")
+                        .forward(request, response);
+                break;
         }
     }
 }
